@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../assets/logo.jpg'
+import logo from '../assets/logo.png'
 import { Link, NavLink } from 'react-router-dom'
 import { CiSearch } from "react-icons/ci";
 import { IoMdPerson } from "react-icons/io";
@@ -14,7 +14,7 @@ const Navbar = () => {
   const [visible,setVisible] =useState(false)
   return (
     <div className='flex items-center justify-between py-5 font-medium'>
-    <img className='w-32' src={logo} alt="" />
+    <Link to='/'><img className='w-32' src={logo} alt="" /></Link> 
     <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
 
      <NavLink to='/' className='flex flex-col items-center gap-1'>
