@@ -10,9 +10,14 @@ import tensi from './tensi.jpg'
 import airmax from './airmax.jpg'
 import panda from './panda.jpg'
 import logo from './logo.png'
-
+import aboutpage from './aboutpage.jpg'
+import contact from './contact.jpg'
+import qr from './qr.png'
 export const assets = {
-    logo
+    logo,
+    aboutpage,
+    contact,
+    qr
 }
 
 export const products = [
@@ -95,7 +100,7 @@ export const products = [
         price: 190,
         image: [cheakboard],
         category: "Men",
-        subCategory: "Bottomwear",
+        subCategory: "Bottomwear", 
         sizes: ["S", "L", "XL"],
         date: 1716621542448,
         bestseller: false
@@ -141,7 +146,7 @@ export const products = [
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 120,
-        image: [],
+        image: [airmax],
         category: "Men",
         subCategory: "Topwear",
         sizes: ["S", "M", "L"],
@@ -153,7 +158,7 @@ export const products = [
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 150,
-        image: [],
+        image: [airmax],
         category: "Men",
         subCategory: "Topwear",
         sizes: ["S", "M", "L", "XL"],
@@ -165,7 +170,7 @@ export const products = [
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 130,
-        image: [],
+        image: [airmax],
         category: "Women",
         subCategory: "Topwear",
         sizes: ["S", "M", "L", "XL"],
@@ -213,7 +218,7 @@ export const products = [
         name: "Men Tapered Fit Flat-Front Trousers",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 150,
-        image: [],
+        image: [airmax],
         category: "Men",
         subCategory: "Bottomwear",
         sizes: ["S", "M", "L", "XL"],
@@ -225,7 +230,7 @@ export const products = [
         name: "Boy Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 180,
-        image: [],
+        image: [airmax],
         category: "Kids",
         subCategory: "Topwear",
         sizes: ["S", "M", "L", "XL"],
