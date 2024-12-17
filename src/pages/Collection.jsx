@@ -2,16 +2,47 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { PiGreaterThan } from 'react-icons/pi';
 import Title from '../components/Title';
+import ProductItem from '../components/ProductItem'
+
 const Collection = () => {
-  const { product } = useContext(ShopContext);
+  const { products } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
-  const [filtersProduct,setFilterProducts] = useState([]);
+  const [filtersProducts,setFilterProducts] = useState([]);
   const [Category,setCategory] = useState([]);
-  const [Subcategory,setSubCategory] = useState([]);
+  const [subCategory,setSubCategory] = useState([]);
+
+  const toggleCategory = (e)=> {
+    if(Category.includes(e.target.value)){
+      setCategory(prev=>prev.filter(item !== e.target.value))
+    }else{
+      setCategory(prev => [...prev,e.target.value])
+    }
+  }
+
+  const toggleSubCategory = (e) =>{
+    if(subCategory.includes(e.target.value)){
+      setSubCategory(prev=>prev.filter(item !== e.target.value))
+    }else{
+      setSubCategory(prev => [...prev,e.target.value])
+    }
+  }
+
+  const applyFilter = () =>{
+    let productsCopy = products.slice();
+
+    if(Category.length > 0){
+      productsCopy = productsCopy.filter(item => Category.includes(item.Category));
+    }
+    setFilterProducts(productsCopy)
+  }
  
   useEffect(()=>{
-    setFilterProducts(product);
+    setFilterProducts(products);
   },[])
+
+  useEffect(()=>{
+   applyFilter();
+  },[Category, subCategory])
 
   return (
     <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 pt-10 border-t">
@@ -32,14 +63,10 @@ const Collection = () => {
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <label className="flex gap-2 items-center">
-              <input className="w-3" type="checkbox" value="Men" />Men</label>
+        <input className="w-3" type="checkbox" value={"Men"} onChange={toggleCategory} />Men</label>
             <label className="flex gap-2 items-center">
-              <input className="w-3" type="checkbox" value="Women" />
+              <input className="w-3" type="checkbox" value={"Women"} onChange={toggleCategory} />
               Women
-            </label>
-            <label className="flex gap-2 items-center">
-              <input className="w-3" type="checkbox" value="Kids" />
-              Kids
             </label>
           </div>
         </div>
@@ -53,16 +80,16 @@ const Collection = () => {
           <p className="mb-3 text-sm font-medium">TYPE</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <label className="flex gap-2 items-center">
-              <input className="w-3" type="checkbox" value="Sneakers" />
+              <input className="w-3" type="checkbox" value="Sneakers" onChange={toggleSubCategory}/>
               Sneakers
             </label>
             <label className="flex gap-2 items-center">
-              <input className="w-3" type="checkbox" value="Boots" />
+              <input className="w-3" type="checkbox" value="Boots" onChange={toggleSubCategory}/>
               Boots
             </label>
             <label className="flex gap-2 items-center">
-              <input className="w-3" type="checkbox" value="Sports" />
-              Sports
+              <input className="w-3" type="checkbox" value="Sandals" onChange={toggleSubCategory}/>
+              Sandals
             </label>
           </div>
         </div>
@@ -79,11 +106,11 @@ const Collection = () => {
 </select>
 </div>
 {/*map products */}
-{/* <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
-{filtersProduct.map((product)=>(
+<div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+{filtersProducts.map((item,index)=>(
   <ProductItem key={index} name={item.name} id={item._id} price={item.price} image={item.image}/>
 ))}
-</div> */}
+</div>
       </div>
       </div>
   );
