@@ -201,7 +201,7 @@ export const products = [
     {
         _id: "aaaap",
         name: "Sandália Kammy",
-        description: "**Sandália Kammy** is a stylish and comfortable brand of sandals, offering trendy designs suitable for casual and semi-formal occasions.",
+        description: "Sandália Kammy is a stylish and comfortable brand of sandals, offering trendy designs suitable for casual and semi-formal occasions.",
         price: 170,
         image: [girls4],
         category: "Kids",
